@@ -2,6 +2,7 @@
 
 class Player
 {
+    //  NAV Pabeigts bet pabeigsu.
     private Elements $beats;
     private string $player;
 
