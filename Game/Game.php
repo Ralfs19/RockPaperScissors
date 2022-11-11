@@ -2,25 +2,26 @@
 
 class Game
 {
-    private Elements $atacker;
-    private Elements $defender;
+    private Player $player1;
+    private Player $player2;
 
-    public function __construct(Elements $atacker, Elements $defender)
+    public function __construct(Player $player1, Player $player2)
     {
-        $this->atacker = $atacker;
-        $this->defender = $defender;
+        $this->player1 = $player1;
+        $this->player2 = $player2;
     }
-    public function getWinner(): ?Elements
+    public function getWinner(): ?Player
     {
-        if ($this->atacker->getName() === $this->defender->getName())
+        if ($this->player1->getElement()->getName() === $this->player2->getElement()->getName())
         {
             return null;
         }
-        if ($this->atacker->getBeats()->getName() === $this->defender->getName())
-        {
-            return $this->atacker;
+        foreach ($this->player1->getElement()->getWins() as $element) {
+            if ($element->getName() === $this->player2->getElement()->getName()){
+                return $this->player1;
+            }
         }
-        return $this->defender;
+        return $this->player2;
     }
 
 }

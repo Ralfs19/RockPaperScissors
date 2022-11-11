@@ -3,7 +3,7 @@
 class Elements
 {
     private string $name;
-    private Elements $beats;
+    private array $wins = [];
 
     public function __construct(string $name)
     {
@@ -13,12 +13,14 @@ class Elements
     {
         return $this->name;
     }
-    public function getBeats(): ?Elements
+    public function getWins(): array
     {
-        return $this->beats;
+        return $this->wins;
     }
-    public function setBeats(Elements $element): void
+    public function setWins(Elements ...$elements): void
     {
-        $this->beats = $element;
+        foreach ($elements as $element){
+            $this->wins[] = $element;
+        }
     }
 }

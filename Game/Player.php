@@ -2,17 +2,21 @@
 
 class Player
 {
-    //  NAV Pabeigts bet pabeigsu.
-    private Elements $beats;
-    private string $player;
+    private Elements $element;
+    private string $name;
 
-    public function __construct(string $player)
+    public function __construct(string $name, Elements $element)
     {
-        $this->player = $player;
+        $this->name = $name;
+        $this->element = $element;
     }
-    public function getPlayer(): string
+    public function getName(): string
     {
-        return $this->player;
+        return $this->name;
+    }
+    public function getElement(): Elements
+    {
+        return $this->element;
     }
 
 }
